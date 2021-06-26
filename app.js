@@ -31,28 +31,25 @@ fetch('./demo/script.js')
 
 // }
 
-const preview = document.querySelector('#preview').contentWindow;
+const result = document.querySelector('#result');
+let preview = document.querySelector('#preview');
 
-// YOU ARE HERE
-function runIframe() {
+function reloadIframe() {
+  result.removeChild(preview);
+  preview = document.createElement('iframe');
+  result.appendChild(preview);
 
+  showPreview();
 }
-runButton.addEventListener('click', runIframe);
+runButton.addEventListener('click', reloadIframe);
 
 
 function showPreview() {
   const html = htmledit.value;
   const css = `<style>${cssedit.value}</style>`;
   const js = `<script>${jsedit.value}</script>`;
-  
-  // preview.location.reload();
-  preview.document.open();
-  preview.document.write(html+css+js);
-  preview.document.close();
-  
-  // console.log(htmledit.value, cssedit.value, jsedit.value);
-}
 
-htmledit.addEventListener('input', showPreview);
-cssedit.addEventListener('input', showPreview);
-jsedit.addEventListener('input', showPreview);
+  preview.contentWindow.document.open();
+  preview.contentWindow.document.write(html+css+js);
+  preview.contentWindow.document.close();
+}
