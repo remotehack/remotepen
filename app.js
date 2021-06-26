@@ -40,6 +40,7 @@ let preview = document.querySelector('#preview');
 function reloadIframe() {
   result.removeChild(preview);
   preview = document.createElement('iframe');
+  preview.id = 'preview';
   result.appendChild(preview);
 
   showPreview();
