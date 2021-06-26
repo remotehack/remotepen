@@ -4,6 +4,7 @@ const jsedit = document.querySelector('#js');
 
 const runButton = document.querySelector('#run');
 
+const doctype = '<!doctype html>\n';
 
 // so here we need to get file contents and add it to the textarea, rather than use what is loaded
 
@@ -50,7 +51,7 @@ function showPreview() {
   const js = `<script>${jsedit.value}</script>`;
 
   preview.contentWindow.document.open();
-  preview.contentWindow.document.write(html+css+js);
+  preview.contentWindow.document.write(doctype+html+css+js);
   preview.contentWindow.document.close();
 }
 
