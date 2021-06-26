@@ -31,7 +31,7 @@ fetch('./demo/script.js')
 
 
 
-const preview = document.querySelector('#preview').contentWindow.document;
+const preview = document.querySelector('#preview').contentWindow;
 
 
 function showPreview() {
@@ -39,9 +39,10 @@ function showPreview() {
   const css = `<style>${cssedit.value}</style>`;
   const js = `<script>${jsedit.value}</script>`;
   
-  preview.open();
-  preview.write(html+css+js);
-  preview.close();
+  preview.document.open();
+  preview.document.write(html+css+js);
+  preview.document.close();
+  preview.location.reload();
   // console.log(htmledit.value, cssedit.value, jsedit.value);
 }
 
