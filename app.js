@@ -8,31 +8,17 @@ const doctype = '<!doctype html>\n';
 
 // so here we need to get file contents and add it to the textarea, rather than use what is loaded
 
+async function getFileInputValue(url, input) {
+  const response = await fetch(url);
+  input.value = await response.text();
+}
+
 Promise.all([
-  fetch('./demo/index.html')
-    .then(response => response.text())
-    .then(data => {
-      htmledit.value = data;
-    }),
-
-  fetch('./demo/style.css')
-    .then(response => response.text())
-    .then(data => {
-      cssedit.value = data;
-    }),
-
-  fetch('./demo/script.js')
-    .then(response => response.text())
-    .then(data => {
-      jsedit.value = data;
-    }),
+  getFileInputValue('./demo/index.html', htmledit),
+  getFileInputValue('./demo/style.css', cssedit),
+  getFileInputValue('./demo/script.js', jsedit),
 ])
 .then(showPreview);
-
-// fetch into file object
-// async function getText(fileURL) {
-
-// }
 
 const result = document.querySelector('#result');
 let preview = document.querySelector('#preview');
