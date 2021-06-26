@@ -53,3 +53,5 @@ function showPreview() {
   preview.contentWindow.document.write(html+css+js);
   preview.contentWindow.document.close();
 }
+
+showPreview();
