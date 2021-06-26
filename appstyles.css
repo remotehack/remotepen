@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Nova+Mono&display=swap');
+
+:root {
+  --black: hsla(345, 6%, 13%, 1);
+  --orange: hsla(9, 59%, 46%, 1);
+  --blue: hsla(184, 36%, 63%, 1);
+  --champagne: hsla(45, 77%, 79%, 1);
+  --linen: hsla(30, 36%, 90%, 1);
+
+  --header-font: 'Dela Gothic One', cursive;
+  --mono-font: 'Nova Mono', monospace;
+}
+
+/* base  */
+* {
+  margin: 0px; padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: var(--header-font);
+}
+.wrapper {
+  height:  100vh;
+  padding:  1%;
+  display: flex;
+  /*align-items: stretch;*/
+  flex-direction: column;
+
+  background-color: var(--champagne);
+}
+
+/* page  */
+header h1 {
+  text-align: right;
+}
+
+article {
+  flex:  1;
+  border: 1px solid green;
+  background-color: var(--linen);
+
+  display: grid;
+  grid-template-columns: 3fr 4fr 70px;
+}
+
+/* edit panels */
+#edit section {
+  position: relative;
+  padding:  10px;
+}
+section h3 {
+  position:  absolute; bottom: 14px; right: 10px;
+  color:  var(--orange);
+}
+textarea {
+  width: 100%; height: 26vh;
+  background: transparent;
+  border: none;
+  border-bottom: 4px solid var(--orange);
+  resize: none;
+  font-family: var(--mono-font);
+  font-size: 1em;
+}
+
+
+
+
