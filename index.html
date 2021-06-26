@@ -4,42 +4,17 @@
   <meta charset="utf-8">
   <title>A demo of a demo</title>
 
-  <style>
-    article {
-      display: flex;
-    }
-    #edit {
-      width:  40vw;
-      display: flex;
-      flex-direction: column;
-      flex-wrap: nowrap;
-    }
-    #edit h3 {
-      margin: 0px;
-    }
-    #edit textarea {
-      box-sizing: border-box;
-      width: 100%; height:  20vh;
-    }
-    #result {
-      width: 40vw;
-    }
-    #preview {
-      border: 1px solid deeppink;
-      width: 100%; height: 70vh;
-    }
-  </style>
+  <link rel="stylesheet" type="text/css" href="appstyles.css">
 
 </head>
 <body><div class="wrapper">
 
   <header>
-    <h1>Demo of demos</h1>
+    <h1>Demos Editor</h1>
   </header>
 
   <article>
     <section id="edit">
-      <h2>Edit</h2>
       <!-- <p>The code here comes from files within the repository</p> -->
 
       <section>
@@ -58,7 +33,7 @@ h1 {color: red;}
 
       <section>
         <h3>JS</h3>
-        <textarea id="js">
+        <textarea resize="false" id="js">
 const h1 = document.querySelector('h1');
 h1.style.color = 'blue';
         </textarea>
